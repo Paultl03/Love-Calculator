@@ -21,37 +21,40 @@ class ViewController: UIViewController {
 
         
     }
-
+ 
+    
     @IBAction func loveCalculatorButton(_ sender: Any) {
-        calculateLove(yourName: yourNameTextField.text!, yourCrushName: yourCrushNameTextField.text!)
+        
+         calculateLove(yourName: yourNameTextField.text!, yourCrushName: yourCrushNameTextField.text!)
         
     }
-    func calculateLove(yourName: String, yourCrushName: String) -> Int{
+    func calculateLove(yourName: String, yourCrushName: String) -> String{
         
-        let loveScore = arc4random_uniform(101)
+        let loveScore = Int(arc4random_uniform(101))
         
         if loveScore >= 85 {
-            print("You and your crush have a high compatibility. Start planning for the wedding.")
+            return ("\(yourName),you and your crush \(yourCrushName) have a high compatibility of \(loveScore)%. Start planning for the wedding now!")
         }
         
         else if loveScore < 85 && loveScore > 70 {
             
-          print("Your chances of getting together are pretty good. Ask them out on a date.")
-        }
+          return ("\(yourName),you and your crush \(yourCrushName) have a   \(loveScore)% chance of being a good match. Ask them out on a date.")
+            }
         else if loveScore < 70 && loveScore > 49 {
                 
-                print ("Doesn't look too good. But hey, it doesn't hurt to give it a try. Just don't be a creep about it.")
+                return("Doesn't look too good \(yourName). But hey, it doesn't hurt to give it a try. Just don't be a creep about it.")
             }
         
         else {
-            print("Yea, I think you should type in another name. This doesn't look good at all. ")
+            return (" \(yourName), I think you should type in another name. This doesn't look good at all. ")
             
         }
         
-        return 0
-    
+        
+      
     }
     
+  
     
 }
 
